@@ -1,14 +1,11 @@
 import { Component } from 'angular2/core';
 import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from 'angular2/router';
 
-import { HeroesComponent } from '../heroes/heroes.component';
-import { HeroDetailComponent } from '../hero-detail/hero-detail.component';
 import { SignupComponent } from '../signup/signup.component';
 import { SigninComponent } from '../signin/signin.component';
 import { DashboardComponent } from '../dashboard/dashboard.component';
 
 import { AuthService } from '../../services/auth/auth.service';
-import { HeroService } from '../../services/hero/hero.service';
 import { PositionService } from '../../services/position/position.service';
 import { QuoteService } from '../../services/quote/quote.service';
 import { NewsService } from '../../services/news/news.service';
@@ -18,14 +15,12 @@ import { NewsService } from '../../services/news/news.service';
   templateUrl: 'app/components/app/app.component.html',
   styleUrls: ['app/components/app/app.component.css'],
   directives: [ROUTER_DIRECTIVES],
-  providers: [HeroService, PositionService, AuthService, QuoteService, NewsService, ROUTER_PROVIDERS]
+  providers: [PositionService, AuthService, QuoteService, NewsService, ROUTER_PROVIDERS]
 })
 @RouteConfig([
     { path: '/dashboard', name: 'Dashboard', component: DashboardComponent, useAsDefault: true },
     { path: '/signup', name: 'Signup', component: SignupComponent },
-    { path: '/signin', name: 'Signin', component: SigninComponent },
-    { path: '/heroes', name: 'Heroes', component: HeroesComponent },
-    { path: '/detail/:id', name: 'HeroDetail', component: HeroDetailComponent }
+    { path: '/signin', name: 'Signin', component: SigninComponent }
 ])
 export class AppComponent {
     public title = 'Quotes';

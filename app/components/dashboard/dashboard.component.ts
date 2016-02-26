@@ -1,7 +1,6 @@
 import { Component, OnInit } from 'angular2/core';
 import { Observable } from 'rxjs/Rx';
 import { Router } from 'angular2/router';
-import { Hero, HeroService } from '../../services/hero/hero.service';
 import { Position, PositionService } from '../../services/position/position.service';
 import { Quote, QuoteService } from '../../services/quote/quote.service';
 import { NewsService } from '../../services/news/news.service';
@@ -25,14 +24,12 @@ export class Holding {
     styleUrls: ['app/components/dashboard/dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-    public heroes: Hero[] = [];
     public portfolio: any;
     public newsFeed: any[];
 
-    constructor(private _positionService: PositionService, private _quoteService: QuoteService, private _newsService: NewsService, private _heroService: HeroService, private _router: Router) { }
+    constructor(private _positionService: PositionService, private _quoteService: QuoteService, private _newsService: NewsService, private _router: Router) { }
 
     ngOnInit() {
-        this._heroService.getHeroes().then(heroes => this.heroes = heroes.slice(1, 5));
 
         this._positionService.getPositions()
         .then((positions: Position[]) => {
